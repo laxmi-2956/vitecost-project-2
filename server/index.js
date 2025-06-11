@@ -6,6 +6,7 @@ require("dotenv").config();
 var cookieParser = require("cookie-parser");
 const productRouter = require("./routes/products.route");
 const cartRouter = require("./routes/cart.routes");
+const PORT = process.env.PORT || 8080;
 
 const app = express();
 app.use(
