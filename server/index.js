@@ -22,12 +22,14 @@ app.use("/api/user", userRouter);
 
 app.use("/api/products", productRouter);
 app.use("/api/cart", cartRouter);
-
-app.listen(process.env.PORT || 3000, async () => {
-  try {
-    await connection;
-    console.log("server is running");
-  } catch (error) {
-    console.log(error);
-  }
-});
+connection
+  .then(() => {
+    console.log("✅ MongoDB connected");
+    app.listen(PORT, () => {
+      console.log(`🚀 Server running on port ${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error("❌ Failed to connect to MongoDB:", err);
+    process.exit(1); // Stop if DB connection fails
+  });
