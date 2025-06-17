@@ -18,6 +18,10 @@ const usercontroller = {
     if (!email || !name || !password) {
       return res.status(400).json({ message: "Please fill all the fields" });
     }
+    const user = await userModel.findOne({email:email});
+    if(user){
+        return res.status(400).json({ message: "user already" });
+    }
     const { otp, token } = CreateOtpAndToken({ ...req.body }, "5m");
 
     try {
