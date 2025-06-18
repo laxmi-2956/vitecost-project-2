@@ -7,7 +7,6 @@ import { useDispatch } from "react-redux";
 import { signinError, signinStart, signinSuccess } from "../redux/auth/authSlice";
 
 
-
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
