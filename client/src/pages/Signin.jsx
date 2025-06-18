@@ -4,7 +4,7 @@ import "../css/login.css";
 
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { signinError, signinStart, signinSuccess } from "../redux/auth/authSlice";
+import { signinError, signinStart, signinSuccess } from "../redux/auth/authslice";
 
 
 const Login = () => {
