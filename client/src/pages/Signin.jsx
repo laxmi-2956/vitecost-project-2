@@ -4,17 +4,15 @@ import "../css/login.css";
 
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { signinError, signinStart, signinSuccess } from "../redux/auth/authslice";
+
 
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-
   // const handleLogin = async () => {
-  //   dispatch(signinStart());
+  //   
   //   if (!email || !password) {
   //     alert("Please enter both email and password");
   //     return;
@@ -35,12 +33,9 @@ const Login = () => {
   //     console.log("Login response:", response.data);  
   //     console.log(response);
 
-  //     dispatch(signinSuccess({ user: response.data.user, message: response.data.message }));
   //     navigate("/");
   //   } catch (error) {
-  //     dispatch(
-  //       signinError(error?.response?.data?.message || "Something went wrong")
-  //     );
+  //   
   //     console.error("Login error:", error.response || error.message);
   //     alert(
   //       error.response?.data?.message ||
@@ -51,7 +46,7 @@ const Login = () => {
 
 
 const handleLogin = async () => {
-  dispatch(signinStart());
+ 
   if (!email || !password) {
     alert("Please enter both email and password");
     return;
@@ -68,20 +63,15 @@ const handleLogin = async () => {
 
     if (response.data?.user && response.data?.message) {
       dispatch(
-        signinSuccess({
-          user: response.data.user,
-          message: response.data.message,
-        })
+       
       );
       navigate("/");
     } else {
-      dispatch(signinError(response.data?.message || "Invalid credentials"));
+      
     }
   } catch (error) {
     console.error("Login error:", error.response || error.message);
-    dispatch(
-      signinError(error.response?.data?.message || "Something went wrong")
-    );
+
     alert(error.response?.data?.message || "Login failed.");
   }
 };
