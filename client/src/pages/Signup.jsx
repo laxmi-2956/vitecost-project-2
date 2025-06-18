@@ -4,11 +4,7 @@ import "../css/login.css";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import {
-  signupError,
-  signupStart,
-  signupSuccess,
-} from "../redux/auth/authSlice";
+import { signupError, signupStart, signupSuccess } from "../redux/auth/authSlice";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
