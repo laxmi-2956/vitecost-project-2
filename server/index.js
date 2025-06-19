@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 app.use(
   cors({
-    origin:"new-vitecostproject.netlify.app",
+    origin:"https://new-vitecost-8.netlify.app",
     credentials: true,
   })
 );
